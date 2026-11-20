@@ -1,5 +1,5 @@
 /* Little Bloom service worker — offline after first load */
-const CACHE = "little-bloom-v1";
+const CACHE = "little-bloom-v2";
 const ASSETS = [
   "./", "./index.html", "./week.html", "./month.html", "./breathe.html", "./kicks.html",
   "./diet.html", "./checklist.html", "./bag.html", "./signs.html", "./partner.html",

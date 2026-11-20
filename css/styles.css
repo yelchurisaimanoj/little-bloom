@@ -48,8 +48,9 @@ button { font-family: inherit; }
 .langseg { display: flex; background: #f6e6de; border-radius: 999px; padding: 3px; }
 .langseg button {
   border: 0; background: transparent; color: var(--muted);
-  font-weight: 700; font-size: 0.82rem; padding: 6px 12px; border-radius: 999px; min-height: 36px;
+  font-weight: 700; font-size: 0.78rem; padding: 6px 9px; border-radius: 999px; min-height: 36px;
 }
+.topbar { padding: 10px 10px; gap: 6px; }
 .langseg button.on { background: #fff; color: var(--rose-deep); box-shadow: 0 2px 8px rgba(178,58,86,.15); }
 
 /* ---------- layout ---------- */
@@ -131,6 +132,7 @@ button { font-family: inherit; }
 
 /* ---------- week page ---------- */
 .week-nav { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.week-nav h1 { white-space: nowrap; font-size: 1.25rem; }
 .week-nav .btn { flex: 1; }
 .week-chip-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin: 10px 0 4px; }
 .week-chip-grid button {
