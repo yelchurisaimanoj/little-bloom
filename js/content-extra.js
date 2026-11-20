@@ -1,7 +1,7 @@
 /* Diet, visits, tasks, bag, signs, partner, bonding ideas */
 window.LB_DIET = {
  t1: {
-  eat:[{en:"Folate: spinach, chana, sprouts, oranges",hi:"फ़ोलेट: पालक, चना, अंकुरित, संतरा",te:"ఫోలేట్: పాలకూర, చనగలు, మొలకలు, బత్తాయి"},
+  eat:[{en:"Folate: spinach, chana, cooked sprouts, oranges",hi:"फ़ोलेट: पालक, चना, पके अंकुरित, संतरा",te:"ఫోలేట్: పాలకూర, చనగలు, ఉడికించిన మొలకలు, బత్తాయి"},
        {en:"Milk, curd, paneer for calcium",hi:"कैल्शियम: दूध, दही, पनीर",te:"కాల్షియం: పాలు, పెరుగు, పన్నీరు"},
        {en:"Dal, eggs, nuts for protein",hi:"प्रोटीन: दाल, अंडे, मेवे",te:"ప్రోటీన్: పప్పు, గుడ్లు, గింజలు"},
        {en:"Ginger-lemon water for nausea",hi:"मतली के लिए अदरक-नींबू पानी",te:"వికారానికి అల్లం-నిమ్మ నీరు"},
@@ -9,8 +9,8 @@ window.LB_DIET = {
   avoid:[{en:"Alcohol and tobacco — completely",hi:"शराब, तम्बाकू — बिल्कुल नहीं",te:"మద్యం, పొగాకు — అస్సలు వద్దు"},
          {en:"Raw or half-cooked eggs and meat",hi:"कच्चे/आधे पके अंडे-मांस",te:"పచ్చి/సగం వంటిన గుడ్లు-మాంసం"},
          {en:"Unpasteurised milk",hi:"बिना पाश्चराइज़ दूध",te:"పాశ్చరైజ్ చేయని పాలు"},
-         {en:"Too much tea/coffee (max 1–2 cups)",hi:"ज़्यादा चाय/कॉफ़ी (1–2 कप से ज़्यादा नहीं)",te:"ఎక్కువ టీ/కాఫీ (1–2 కప్పులు మించకండి)"},
-         {en:"Papaya and pineapple — traditionally avoided; ask your doctor",hi:"पपीता-अनानास — परंपरा से बचते हैं; डॉक्टर से पूछें",te:"బొప్పాయి-అనాస — సంప్రదాయంగా మానుకుంటారు; డాక్టర్‌ను అడగండి"}]},
+         {en:"More than 200 mg caffeine a day, including tea, coffee and cola",hi:"दिन में 200 mg से अधिक कैफ़ीन, चाय-कॉफ़ी और कोला सहित",te:"రోజుకు 200 mg కంటే ఎక్కువ కెఫీన్, టీ, కాఫీ, కోలాతో కలిపి"},
+         {en:"Unwashed fruit and vegetables",hi:"बिना धुले फल और सब्ज़ियाँ",te:"కడగని పండ్లు, కూరగాయలు"}]},
  t2: {
   eat:[{en:"Iron: greens, dates, jaggery, beetroot",hi:"आयरन: हरी सब्ज़ी, खजूर, गुड़, चुकंदर",te:"ఐరన్: ఆకుకూరలు, ఖర్జూరం, బెల్లం, బీట్‌రూట్"},
        {en:"Vitamin C with meals helps iron absorb",hi:"खाने के साथ विटामिन C से आयरन बेहतर लगता है",te:"భోజనంతో విటమిన్ C ఐరన్ శోషణ పెంచుతుంది"},
@@ -53,7 +53,7 @@ window.LB_TASKS = {
      {en:"Sugar test (24–28 weeks)",hi:"शुगर टेस्ट (24–28 हफ़्ते)",te:"షుగర్ టెస్ట్ (24–28 వారాలు)"},
      {en:"Daily bump talk begins",hi:"रोज़ पेट से बात शुरू",te:"రోజూ కడుపుతో మాట మొదలు"},
      {en:"Sleep on your side",hi:"करवट सोना",te:"పక్కకి పడుకోండి"}],
- t3:[{en:"Count kicks daily",hi:"रोज़ किक गिनें",te:"రోజూ కిక్‌లు లెక్కించండి"},
+ t3:[{en:"Know your baby’s usual movement pattern",hi:"बच्चे की सामान्य हलचल पहचानें",te:"బిడ్డ సాధారణ కదలికల క్రమాన్ని తెలుసుకోండి"},
      {en:"Pack the hospital bag",hi:"अस्पताल का बैग पैक करें",te:"ఆసుపత్రి బ్యాగ్ ప్యాక్"},
      {en:"Know the hospital route",hi:"अस्पताल का रास्ता जानें",te:"ఆసుపత్రి దారి తెలుసుకోండి"},
      {en:"Learn labour signs",hi:"प्रसव संकेत जानें",te:"ప్రసూతి సంకేతాలు తెలుసుకోండి"},

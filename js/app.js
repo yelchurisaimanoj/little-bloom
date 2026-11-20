@@ -147,7 +147,7 @@
     },
 
     breathe() {
-      const MODES = { calm: [4, 2, 6], sleep: [4, 3, 7], labor: [3, 0, 3] };
+      const MODES = { calm: [4, 0, 6], sleep: [4, 0, 6], labor: [3, 0, 3] };
       let mode = "calm", timer = null, phase = 0, cycles = 0, running = false;
       const circ = $("#bCircle"), lbl = $("#bPhase"), cnt = $("#bCount"), btn = $("#bStart");
       const phases = () => [["in", "inhale", MODES[mode][0]], ["hold", "hold", MODES[mode][1]], ["out", "exhale", MODES[mode][2]]].filter(p => p[2] > 0);
