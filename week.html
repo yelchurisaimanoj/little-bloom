@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Journey · Little Bloom</title>
+<meta name="description" content="A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="week" data-nav="journey">
+
+<div class="page">
+  <div class="week-nav">
+    <button class="btn ghost" id="wPrev" data-i18n="prev"></button>
+    <h1 style="flex:1;text-align:center;margin:0;color:var(--plum)" id="wkTitle"></h1>
+    <button class="btn ghost" id="wNext" data-i18n="next"></button>
+  </div>
+  <div class="card size-hero">
+    <span class="emoji" id="wEmoji"></span>
+    <div class="size-note" data-i18n="size_now"></div>
+    <div class="size-name" id="wSize"></div>
+  </div>
+  <div class="card"><div class="fact-card"><span class="fic brain">🧠</span><div><div class="ft" data-i18n="brain_this_week"></div><div class="fb" id="wBrain"></div></div></div></div>
+  <div class="card"><div class="fact-card"><span class="fic can">👶</span><div><div class="ft" data-i18n="baby_can"></div><div class="fb" id="wCan"></div></div></div></div>
+  <div class="card"><div class="fact-card"><span class="fic act">🌼</span><div><div class="ft" data-i18n="try_this"></div><div class="fb" id="wAct"></div></div></div></div>
+  <div class="card"><div class="fact-card"><span class="fic mom">💗</span><div><div class="ft" data-i18n="mom_care"></div><div class="fb" id="wMom"></div></div></div></div>
+  <h2 class="section-title" data-i18n="week_picker"></h2>
+  <div class="week-chip-grid" id="wChips"></div>
+</div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

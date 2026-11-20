@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Home · Little Bloom</title>
+<meta name="description" content="A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="home" data-nav="home">
+
+<div class="page">
+  <div class="hero" id="hero">
+    <h1 data-i18n="hero_hi"></h1>
+    <p data-i18n="hero_sub"></p>
+  </div>
+
+  <div class="card" id="journeyCard" style="display:none">
+    <h3 data-i18n="journey_title"></h3>
+    <div class="journey">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f6a988"/><stop offset="100%" stop-color="#e8637c"/>
+        </linearGradient></defs>
+        <circle class="ring-track" cx="60" cy="60" r="52" fill="none" stroke-width="11"/>
+        <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52" fill="none" stroke-width="11"
+                transform="rotate(-90 60 60)"/>
+      </svg>
+      <div>
+        <div class="jl" id="jWeek"></div>
+        <div class="js" id="jDays"></div>
+        <div class="js" id="jPct"></div>
+        <a class="btn ghost" id="jLink" href="./week.html" data-i18n="nav_journey" style="margin-top:10px;min-height:44px"></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn soft" id="changeDue" data-i18n="change_date" style="min-height:44px;flex:1"></button>
+      <button class="btn soft" id="resetDue" data-i18n="reset_data" style="min-height:44px;flex:1"></button>
+    </div>
+  </div>
+
+  <div class="card" id="dueForm">
+    <h3 data-i18n="set_due_title"></h3>
+    <p style="color:var(--muted);font-size:.9rem" data-i18n="set_due_hint"></p>
+    <input type="date" class="field" id="dueIn" style="margin-bottom:10px">
+    <button class="btn big" id="saveDue" data-i18n="set_due_btn"></button>
+  </div>
+
+  <h2 class="section-title" data-i18n="quick_title"></h2>
+  <div style="display:grid;gap:12px">
+    <a class="tool-tile" href="./breathe.html"><span class="ic">🌬️</span><span><span class="tt" data-i18n="breathe_now"></span><br><span class="ts" data-i18n="breathe_now_sub"></span></span></a>
+    <a class="tool-tile" href="./kicks.html"><span class="ic">👣</span><span><span class="tt" data-i18n="kicks_now"></span><br><span class="ts" data-i18n="kicks_now_sub"></span></span></a>
+  </div>
+
+  <h2 class="section-title" data-i18n="bonding_title"></h2>
+  <div class="card"><p id="bonding" style="font-size:1.05rem;font-weight:600;color:var(--plum)"></p></div>
+
+  <h2 class="section-title" data-i18n="months_title"></h2>
+  <div class="grid3" id="monthGrid"></div>
+
+  <h2 class="section-title" data-i18n="tools_title"></h2>
+  <div style="display:grid;gap:12px" id="toolList"></div>
+</div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

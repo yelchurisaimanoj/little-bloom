@@ -1,0 +1,16 @@
+{
+  "name": "Little Bloom — Pregnancy Companion",
+  "short_name": "Little Bloom",
+  "description": "A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#e8637c",
+  "background_color": "#fff8f3",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

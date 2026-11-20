@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Food · Little Bloom</title>
+<meta name="description" content="A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="diet" data-nav="menu">
+
+<div class="page">
+  <div class="hero">
+    <h1 data-i18n="diet_title"></h1>
+    <p data-i18n="diet_sub"></p>
+  </div>
+  <div class="tri-tabs" style="margin-top:16px">
+    <button data-tri="1" data-i18n="trimester1"></button>
+    <button data-tri="2" data-i18n="trimester2"></button>
+    <button data-tri="3" data-i18n="trimester3"></button>
+  </div>
+  <div class="card" style="background:var(--green-soft)">
+    <h3>✅ <span data-i18n="eat_more"></span></h3>
+    <ul class="line-list" id="dEat"></ul>
+  </div>
+  <div class="card" style="background:var(--red-soft)">
+    <h3 style="color:var(--red)">🚫 <span data-i18n="avoid"></span></h3>
+    <ul class="line-list" id="dAvoid"></ul>
+  </div>
+  <div class="card"><p>💧 <span data-i18n="diet_note"></span></p></div>
+</div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

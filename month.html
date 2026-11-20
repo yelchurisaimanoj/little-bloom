@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Months · Little Bloom</title>
+<meta name="description" content="A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="month" data-nav="journey">
+
+<div class="page">
+  <div class="hero" id="mHero">
+    <h1 id="mTitle"></h1>
+    <p id="mWeeks"></p>
+  </div>
+  <div class="week-nav" style="margin-top:14px">
+    <button class="btn ghost" id="mPrev" data-i18n="prev"></button>
+    <button class="btn ghost" id="mNext" data-i18n="next"></button>
+  </div>
+  <h2 class="section-title" data-i18n="baby_growth"></h2>
+  <div class="card"><ul class="line-list" id="mBaby"></ul></div>
+  <h2 class="section-title" data-i18n="brain_focus"></h2>
+  <div class="card"><ul class="line-list" id="mBrain"></ul></div>
+  <h2 class="section-title" data-i18n="activities"></h2>
+  <div id="mActs"></div>
+  <h2 class="section-title" data-i18n="for_mom"></h2>
+  <div class="card"><ul class="line-list" id="mMom"></ul></div>
+</div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

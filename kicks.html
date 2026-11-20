@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kicks · Little Bloom</title>
+<meta name="description" content="A free month-by-month pregnancy guide: baby growth, brain development and simple activities. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-page="kicks" data-nav="kicks">
+
+<div class="page">
+  <div class="hero">
+    <h1 data-i18n="kicks_title"></h1>
+    <p data-i18n="kicks_sub"></p>
+  </div>
+  <div style="margin:16px 0 12px">
+    <button class="kick-pad" id="kickPad">
+      <span data-i18n="tap_when" style="font-size:1rem;opacity:.95"></span>
+      <span class="big" id="kCount">0</span>
+      <span id="kTime" style="opacity:.9;font-size:1rem">0:00</span>
+    </button>
+  </div>
+  <div style="text-align:center"><span class="pill" data-i18n="kicks_target"></span></div>
+  <div class="card" id="kDone" style="display:none;background:var(--green-soft)">
+    <h3 data-i18n="kicks_done_title"></h3>
+    <p id="kDoneIn"></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="kSave" data-i18n="kicks_save"></button>
+      <button class="btn ghost" id="kNew" data-i18n="kicks_new"></button>
+    </div>
+  </div>
+  <div class="card"><p>💡 <span data-i18n="kicks_tip"></span></p></div>
+  <div class="card" style="background:var(--red-soft)"><p style="color:#8f2727;font-weight:600">⚠️ <span data-i18n="kicks_warn"></span></p></div>
+  <h2 class="section-title" data-i18n="kicks_history"></h2>
+  <div id="kHist"></div>
+  <button class="btn soft" id="kClear" data-i18n="kicks_clear" style="margin-top:6px"></button>
+</div>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
