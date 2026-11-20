@@ -63,8 +63,24 @@
     if (fn) fn();
   }
 
-  /* ---------- speech helper for mantras ---------- */
-  function chant(txt) {
+  /* ---------- chant audio: bundled natural recording, device TTS as fallback ---------- */
+  let chantAudio = null;
+  function chant(txt, idx) {
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    if (chantAudio) { chantAudio.pause(); chantAudio = null; }
+    if (idx != null) {
+      const a = new Audio("audio/mantra-" + (idx + 1) + ".m4a");
+      chantAudio = a;
+      let fellBack = false;
+      const fallback = () => { if (fellBack) return; fellBack = true; chantAudio = null; chantTts(txt); };
+      a.onerror = fallback;
+      const p = a.play();
+      if (p && p.catch) p.catch(fallback);
+      return;
+    }
+    chantTts(txt);
+  }
+  function chantTts(txt) {
     if (!("speechSynthesis" in window)) return;
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(txt);
@@ -371,6 +387,7 @@
     },
     sanskar() {
       if ("speechSynthesis" in window) speechSynthesis.cancel();
+      if (chantAudio) { chantAudio.pause(); chantAudio = null; }
       const doy = dayOfYear(), todayM = LB_SANSKAR.mantras[doy % LB_SANSKAR.mantras.length];
       $("#todayMantra").innerHTML = '<div class="card today-hero"><span class="pill">🌼 ' + t("today_mantra") + '</span>' +
         '<div class="sa-verse" style="margin-top:10px">' + esc(todayM.sa) + '</div>' +
@@ -383,7 +400,7 @@
         '<div class="more-hint">' + t("tap_to_open") + " \u25be</div>" +
         '<div class="hidden-part"><p>' + esc(pick(m.meaning)) + "</p>" +
         '<button class="btn soft chant-btn" data-c="' + i + '">\u{1F50A} ' + t("mantra_hear") + "</button></div></div>").join("");
-      $$(".chant-btn").forEach(b => b.onclick = e => { e.stopPropagation(); chant(LB_SANSKAR.mantras[+b.dataset.c].tr); });
+      $$(".chant-btn").forEach(b => b.onclick = e => { e.stopPropagation(); chant(LB_SANSKAR.mantras[+b.dataset.c].tr, +b.dataset.c); });
       let ai = dayOfYear() % LB_SANSKAR.affirmations.length;
       const showAff = () => {
         $("#affText").textContent = pick(LB_SANSKAR.affirmations[ai]);
