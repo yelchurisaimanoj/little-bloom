@@ -252,3 +252,13 @@ button { font-family: inherit; }
 @media (min-width: 760px) {
   .bottomnav { max-width: 760px; left: 50%; transform: translateX(-50%); border-radius: 24px 24px 0 0; box-shadow: 0 -6px 30px rgba(178,58,86,.12); }
 }
+
+/* ---------- play page ---------- */
+#traceCanvas { width: 100%; height: auto; border-radius: 18px; background: #fff; box-shadow: var(--shadow); touch-action: none; display: block; }
+.tone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px; }
+.tone-pad { border: 0; border-radius: 18px; min-height: 76px; font-size: 1.6rem; color: #7a3049; font-weight: 800; cursor: pointer; box-shadow: var(--shadow); transition: transform .15s ease; }
+.tone-pad.hit { transform: scale(1.08); }
+.pop-box { position: relative; height: 280px; border-radius: 18px; background: linear-gradient(160deg, #fdeef2, #f3e8fb); overflow: hidden; }
+.pop-heart { position: absolute; font-size: 2.1rem; background: none; border: 0; cursor: pointer; animation: floaty 2.5s ease-in forwards; padding: 6px; }
+.pop-heart.gone { transform: scale(1.9); opacity: 0; transition: transform .2s ease, opacity .2s ease; }
+@keyframes floaty { from { transform: translateY(14px); opacity: 0; } 20% { opacity: 1; } to { transform: translateY(-50px); opacity: 0; } }

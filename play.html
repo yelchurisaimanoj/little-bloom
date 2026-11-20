@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play · Little Bloom</title>
+<meta name="description" content="Small playful moments for pregnancy: finger tracing, soft tunes and tiny games. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles-v4.css">
+</head>
+<body data-page="play" data-nav="menu">
+
+<div class="page">
+  <div class="hero">
+    <h1 data-i18n="play_title"></h1>
+    <p data-i18n="play_sub"></p>
+  </div>
+
+  <h2 class="section-title" data-i18n="trace_title"></h2>
+  <div class="card">
+    <p style="color:var(--muted)" data-i18n="trace_sub"></p>
+    <canvas id="traceCanvas" width="640" height="640"></canvas>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button class="btn soft" id="traceNew" data-i18n="trace_new"></button>
+      <button class="btn ghost" id="traceClear" data-i18n="trace_clear"></button>
+    </div>
+    <p id="traceDone" style="display:none;color:var(--rose-deep);font-weight:700;margin:12px 0 0" data-i18n="trace_done"></p>
+  </div>
+
+  <h2 class="section-title" data-i18n="music_title"></h2>
+  <div class="card">
+    <p style="color:var(--muted)" data-i18n="music_sub"></p>
+    <div class="tone-grid" id="toneGrid"></div>
+  </div>
+
+  <h2 class="section-title" data-i18n="pop_title"></h2>
+  <div class="card">
+    <p style="color:var(--muted)" data-i18n="pop_sub"></p>
+    <div class="pop-box" id="popBox"></div>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+      <button class="btn" id="popStart" data-i18n="start"></button>
+      <span class="pill">💗 <span id="popCount">0</span></span>
+    </div>
+    <p id="popDone" style="display:none;color:var(--rose-deep);font-weight:700;margin:12px 0 0"><span id="popDoneIn"></span></p>
+  </div>
+
+  <h2 class="section-title" data-i18n="paper_title"></h2>
+  <div class="card" style="text-align:center">
+    <p style="color:var(--muted);text-align:left" data-i18n="paper_sub"></p>
+    <div id="paperSvg" style="margin:6px auto"></div>
+    <p id="paperText" style="font-weight:600;color:var(--plum)"></p>
+    <button class="btn soft" id="paperNext" data-i18n="paper_next"></button>
+  </div>
+
+  <div class="card" style="background:var(--green-soft)"><p>🌼 <span data-i18n="play_note"></span></p></div>
+</div>
+
+<script src="./js/i18n-v4.js"></script>
+<script src="./js/content-weeks-1.js"></script>
+<script src="./js/content-weeks-2.js"></script>
+<script src="./js/content-weeks-3.js"></script>
+<script src="./js/content-weeks-4.js"></script>
+<script src="./js/content-months.js"></script>
+<script src="./js/content-extra-v4.js"></script>
+<script src="./js/app-v4.js"></script>
+</body>
+</html>

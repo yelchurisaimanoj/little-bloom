@@ -90,6 +90,7 @@
         ["week.html", "🌱", "tool_weeks", "tool_weeks_sub"],
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
+        ["play.html", "🎨", "tool_play", "tool_play_sub"],
         ["checklist.html", "✅", "tool_checklist", "tool_checklist_sub"],
         ["bag.html", "🧳", "tool_bag", "tool_bag_sub"],
         ["signs.html", "🚨", "tool_signs", "tool_signs_sub"],
@@ -251,12 +252,105 @@
         '<div class="card"><div class="fact-card"><span class="fic act">' + p.e + '</span><div><div class="fb">' + esc(pick(p)) + "</div></div></div></div>").join("");
     },
 
+
+    play() {
+      /* --- magic patterns: trace with a finger --- */
+      const cv = $("#traceCanvas"), ctx = cv.getContext("2d");
+      const heartPts = () => { const a = []; for (let i = 0; i < 140; i++) { const t = i / 140 * 2 * Math.PI;
+        const x = 16 * Math.pow(Math.sin(t), 3), y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+        a.push([x / 17 * 0.38 + 0.5, -y / 17 * 0.38 + 0.5]); } return a; };
+      const starPts = () => { const v = []; for (let k = 0; k < 10; k++) { const r = k % 2 ? 0.17 : 0.4, ang = -Math.PI / 2 + k * Math.PI / 5;
+        v.push([0.5 + r * Math.cos(ang), 0.5 + r * Math.sin(ang)]); } const a = [], per = 14;
+        for (let k = 0; k < 10; k++) { const p1 = v[k], q = v[(k + 1) % 10];
+          for (let j = 0; j < per; j++) a.push([p1[0] + (q[0] - p1[0]) * j / per, p1[1] + (q[1] - p1[1]) * j / per]); } return a; };
+      const spiralPts = () => { const a = []; for (let i = 0; i < 140; i++) { const t = i / 140 * 3.2 * 2 * Math.PI, r = 0.05 + 0.35 * i / 140;
+        a.push([0.5 + r * Math.cos(t), 0.5 + r * Math.sin(t)]); } return a; };
+      const PATTERNS = [heartPts, starPts, spiralPts];
+      let pi = 0, guide = [], covered = [], last = null, finished = false;
+      function drawGuide() {
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        guide = PATTERNS[pi](); covered = guide.map(() => false); finished = false;
+        $("#traceDone").style.display = "none";
+        ctx.fillStyle = "#e9c4cd";
+        guide.forEach(g => { ctx.beginPath(); ctx.arc(g[0] * cv.width, g[1] * cv.height, 5, 0, 7); ctx.fill(); });
+      }
+      function posOf(e) { const r = cv.getBoundingClientRect();
+        return [(e.clientX - r.left) / r.width * cv.width, (e.clientY - r.top) / r.height * cv.height]; }
+      function mark(x, y) {
+        let done = 0;
+        guide.forEach((g, i) => { if (!covered[i] && Math.hypot(g[0] * cv.width - x, g[1] * cv.height - y) < 46) covered[i] = true; if (covered[i]) done++; });
+        if (!finished && done / guide.length >= 0.6) { finished = true; $("#traceDone").style.display = ""; }
+      }
+      function strokeTo(x, y) {
+        ctx.strokeStyle = "#e8637c"; ctx.lineWidth = 30; ctx.lineCap = "round"; ctx.lineJoin = "round";
+        ctx.beginPath(); ctx.moveTo(last[0], last[1]); ctx.lineTo(x, y); ctx.stroke();
+        const steps = Math.max(1, Math.floor(Math.hypot(x - last[0], y - last[1]) / 12));
+        for (let i = 0; i <= steps; i++) mark(last[0] + (x - last[0]) * i / steps, last[1] + (y - last[1]) * i / steps);
+        last = [x, y];
+      }
+      cv.addEventListener("pointerdown", e => { e.preventDefault(); cv.setPointerCapture(e.pointerId); last = posOf(e); mark(last[0], last[1]); });
+      cv.addEventListener("pointermove", e => { if (last) { e.preventDefault(); const xy = posOf(e); strokeTo(xy[0], xy[1]); } });
+      cv.addEventListener("pointerup", () => { last = null; });
+      cv.addEventListener("pointercancel", () => { last = null; });
+      $("#traceNew").onclick = () => { pi = (pi + 1) % PATTERNS.length; last = null; drawGuide(); };
+      $("#traceClear").onclick = () => { last = null; drawGuide(); };
+      drawGuide();
+
+      /* --- lullaby pad --- */
+      const notes = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25];
+      const colors = ["#f7b1c1", "#f9c8a0", "#fbe3a1", "#b7e3c0", "#a9d4f5", "#d7bdf2"];
+      let audio = null;
+      $("#toneGrid").innerHTML = notes.map((n, i) =>
+        '<button class="tone-pad" style="background:' + colors[i] + '" data-n="' + i + '">♪</button>').join("");
+      $$("#toneGrid .tone-pad").forEach(b => { b.onclick = () => {
+        audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+        const o = audio.createOscillator(), g = audio.createGain();
+        o.type = "sine"; o.frequency.value = notes[+b.dataset.n];
+        g.gain.setValueAtTime(0.001, audio.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.28, audio.currentTime + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 1.1);
+        o.connect(g); g.connect(audio.destination); o.start(); o.stop(audio.currentTime + 1.15);
+        b.classList.add("hit"); setTimeout(() => b.classList.remove("hit"), 250);
+      }; });
+
+      /* --- catch the hearts --- */
+      let spawned = 0, popped = 0, timer = null;
+      const POP_EMOJI = ["💗","🌸","⭐"];
+      function popReset() { clearInterval(timer); spawned = 0; popped = 0;
+        $("#popCount").textContent = "0"; $("#popDone").style.display = "none"; $("#popBox").innerHTML = ""; }
+      function spawnHeart() {
+        if (spawned >= 20) { clearInterval(timer); return; }
+        const b = document.createElement("button");
+        b.className = "pop-heart"; b.textContent = POP_EMOJI[spawned % 3];
+        b.style.left = (6 + Math.random() * 78) + "%"; b.style.top = (12 + Math.random() * 60) + "%";
+        b.onclick = () => { if (b.classList.contains("gone")) return; b.classList.add("gone");
+          popped++; $("#popCount").textContent = popped; setTimeout(() => b.remove(), 220);
+          if (popped >= 20) { $("#popDone").style.display = ""; $("#popDoneIn").textContent = tf("pop_done", { n: popped }); } };
+        $("#popBox").appendChild(b); spawned++;
+        setTimeout(() => { if (b.parentNode && !b.classList.contains("gone")) b.remove(); }, 2600);
+      }
+      $("#popStart").onclick = () => { popReset(); spawnHeart(); timer = setInterval(spawnHeart, 550); };
+
+      /* --- pen & paper ideas --- */
+      const SVGS = {
+        dots: '<svg width="150" height="150" viewBox="0 0 150 150">' + Array.from({length:25},(_,i)=>'<circle cx="'+(25+(i%5)*25)+'" cy="'+(25+Math.floor(i/5)*25)+'" r="5" fill="#e8637c"/>').join("") + "</svg>",
+        spiral: '<svg width="150" height="150" viewBox="0 0 150 150"><path d="M75 75 m0 -5 a5 5 0 0 1 5 5 a10 10 0 0 1 -10 10 a15 15 0 0 1 -15 -15 a20 20 0 0 1 20 -20 a25 25 0 0 1 25 25 a30 30 0 0 1 -30 30 a35 35 0 0 1 -35 -35 a40 40 0 0 1 40 -40" fill="none" stroke="#e8637c" stroke-width="4" stroke-linecap="round"/></svg>',
+        waves: '<svg width="150" height="150" viewBox="0 0 150 150">' + [30,55,80,105].map(y=>'<path d="M15 '+y+' q18 -18 35 0 t35 0 t35 0" fill="none" stroke="#e8637c" stroke-width="4" stroke-linecap="round"/>').join("") + "</svg>",
+        mandala: '<svg width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="12" fill="none" stroke="#e8637c" stroke-width="4"/><circle cx="75" cy="75" r="28" fill="none" stroke="#e8637c" stroke-width="4"/>' + Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return '<ellipse cx="'+(75+44*Math.cos(a))+'" cy="'+(75+44*Math.sin(a))+'" rx="10" ry="16" fill="#f7b1c1" transform="rotate('+(i*45)+' '+(75+44*Math.cos(a))+' '+(75+44*Math.sin(a))+')"/>';}).join("") + "</svg>",
+        name: '<svg width="150" height="150" viewBox="0 0 150 150"><text x="75" y="88" text-anchor="middle" font-size="44" fill="#e8637c" font-weight="800">A</text><circle cx="40" cy="40" r="6" fill="#f7b1c1"/><circle cx="112" cy="42" r="6" fill="#f7b1c1"/><circle cx="75" cy="118" r="6" fill="#f7b1c1"/></svg>'
+      };
+      let paperIdx = 0;
+      function showPaper() { const d = LB_PAPER[paperIdx]; $("#paperSvg").innerHTML = SVGS[d.svg]; $("#paperText").textContent = pick(d); }
+      $("#paperNext").onclick = () => { paperIdx = (paperIdx + 1) % LB_PAPER.length; showPaper(); };
+      showPaper();
+    },
     about() {},
     menu() {
       $("#menuList").innerHTML = [
         ["week.html", "🌱", "tool_weeks", "tool_weeks_sub"],
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
+        ["play.html", "🎨", "tool_play", "tool_play_sub"],
         ["checklist.html", "✅", "tool_checklist", "tool_checklist_sub"],
         ["bag.html", "🧳", "tool_bag", "tool_bag_sub"],
         ["signs.html", "🚨", "tool_signs", "tool_signs_sub"],

@@ -117,3 +117,11 @@ window.LB_BONDING = [
  {en:"Drink a glass of water mindfully for baby.",hi:"बच्चे के लिए ध्यान से एक गिलास पानी पिएँ।",te:"బిడ్డ కోసం శ్రద్ధగా ఒక గ్లాసు నీరు తాగండి."},
  {en:"Tell baby the name you're dreaming of.",hi:"बच्चे को सोचा हुआ नाम बताएँ।",te:"బిడ్డకి మీరు అనుకున్న పేరు చెప్పండి."}
 ];
+
+window.LB_PAPER = [
+ {svg:"dots", en:"Rangoli dots: place a 5 by 5 dot grid on paper, then join dots into flowers.", hi:"रंगोली डॉट्स: कागज़ पर 5 गुणा 5 बिंदु बनाएँ, फिर उन्हें जोड़कर फूल बनाएँ।", te:"ముగ్గు చుక్కలు: కాగితంపై 5 x 5 చుక్కలు పెట్టి, వాటిని కలిపి పువ్వులు గీయండి."},
+ {svg:"spiral", en:"Slow spiral: start at the center and wind outward, one loop per breath.", hi:"धीमा स्पाइरल: बीच से शुरू करके बाहर की ओर घुमाएँ, हर साँस पर एक घेरा।", te:"నెమ్మది సుడిగుండం: మధ్య నుండి మొదలుపెట్టి బయటికి, ప్రతి శ్వాసకు ఒక చుట్టు."},
+ {svg:"waves", en:"Wave lines: fill a page with soft waves, one slow line for each breath.", hi:"लहरें: पूरा पन्ना नर्म लहरों से भरें, हर साँस पर एक धीमी लाइन।", te:"అలలు: పేజీ అంతా మృదువైన అలలతో నింపండి, ప్రతి శ్వాసకు ఒక గీత."},
+ {svg:"mandala", en:"Mini mandala: draw circles inside circles, then add petals around.", hi:"छोटा मंडल: गोले के अंदर गोले बनाएँ, फिर चारों ओर पंखुड़ियाँ जोड़ें।", te:"చిన్న మండలం: వృత్తం లోపల వృత్తాలు గీసి, చుట్టూ రేకులు జతచేయండి."},
+ {svg:"name", en:"Name art: write baby's name in big round letters and decorate it.", hi:"नाम आर्ट: बच्चे का नाम बड़े गोल अक्षरों में लिखकर सजाएँ।", te:"పేరు ఆర్ట్: బిడ్డ పేరును పెద్ద గుండ్రని అక్షరాలతో రాసి అలంకరించండి."}
+];
