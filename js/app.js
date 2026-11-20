@@ -83,7 +83,7 @@
         $("#dueForm").style.display = "";
       }
       $("#monthGrid").innerHTML = LB_MONTHS.map(m =>
-        '<a class="month-tile" href="./month.html?m=' + m.n + '"><span class="mnum">' + m.n + '</span><span class="mname">' + t("month_word_" + m) + '</span><div class="mwk">' + t("week") + " " + m.wk + "</div></a>").join("");
+        '<a class="month-tile" href="./month.html?m=' + m.n + '"><span class="mnum">' + m.n + '</span><span class="mname">' + t("month_word_" + m.n) + '</span><div class="mwk">' + t("week") + " " + m.wk + "</div></a>").join("");
       const day = Math.floor(Date.now() / 86400000);
       $("#bonding").textContent = pick(LB_BONDING[day % LB_BONDING.length]);
       $("#toolList").innerHTML = [
