@@ -83,7 +83,7 @@
         $("#dueForm").style.display = "";
       }
       $("#monthGrid").innerHTML = LB_MONTHS.map(m =>
-        '<a class="month-tile" href="./month.html?m=' + m.n + '"><span class="mnum">' + m.n + '</span><span class="mname">' + t("month_word_" + m.n) + '</span><div class="mwk">' + t("week") + " " + m.wk + "</div></a>").join("");
+        '<a class="month-tile" href="./month.html?m=' + m.n + '"><span class="mnum">' + m.n + '</span><span class="mname">' + t("month_word_" + m) + '</span><div class="mwk">' + t("week") + " " + m.wk + "</div></a>").join("");
       const day = Math.floor(Date.now() / 86400000);
       $("#bonding").textContent = pick(LB_BONDING[day % LB_BONDING.length]);
       $("#toolList").innerHTML = [
@@ -129,7 +129,7 @@
       m = Math.max(1, Math.min(9, m));
       const d = LB_MONTHS[m - 1];
       $("#mHero").className = "hero t" + (m <= 3 ? 1 : m <= 6 ? 2 : 3);
-      $("#mTitle").textContent = t("month_word_" + m.n);
+      $("#mTitle").textContent = t("month_word_" + m);
       $("#mWeeks").textContent = t("week") + " " + d.wk;
       $("#mPrev").onclick = () => { if (m > 1) location.href = "./month.html?m=" + (m - 1); };
       $("#mNext").onclick = () => { if (m < 9) location.href = "./month.html?m=" + (m + 1); };
@@ -143,7 +143,7 @@
         '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')"><h3>🌼 ' + esc(pick(a.name)) + '</h3>' +
         '<div class="more-hint">' + t("tap_to_open") + " ▾</div>" +
         '<div class="hidden-part"><ul class="line-list">' + li(a.steps) + "</ul></div></div>").join("");
-      document.title = t("month_word_" + m.n) + " · " + t("appName");
+      document.title = t("month_word_" + m) + " · " + t("appName");
     },
 
     breathe() {
