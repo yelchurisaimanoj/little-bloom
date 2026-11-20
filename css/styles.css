@@ -285,3 +285,9 @@ button { font-family: inherit; }
 @keyframes flipR { 0% { transform: translateX(-26px) rotate(-2deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
 .gita-card.flip-l { animation: flipL .28s ease; }
 .gita-card.flip-r { animation: flipR .28s ease; }
+
+/* ---------- daily rotation ---------- */
+.today-hero { background: linear-gradient(135deg, #fdf3e3, #fdeee6); border: 2px solid #f2d9b8; }
+.today-hero .pill { display: inline-block; }
+.gita-today { display: inline-block; background: var(--green-soft); color: #3f6b2e; border-radius: 999px; padding: 4px 14px; font-size: .78rem; font-weight: 800; margin-left: 6px; }
+.today-tile .ts { white-space: normal; }

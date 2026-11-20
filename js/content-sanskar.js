@@ -120,3 +120,55 @@ window.LB_GITA.push(
            hi:"हर डर छोड़कर परमात्मा की शरण लो। तुम सुरक्षित हो।",
            te:"ప్రతి భయాన్ని వదిలి దైవ శరణు చేరు. నీవు రక్షించబడ్డావు."}}
 );
+
+/* Daily rotation pools — more verses so each day brings a fresh pick */
+LB_SANSKAR.mantras.push(
+ {sa:"ॐ नमः शिवाय", tr:"Om namah shivaaya",
+  meaning:{en:"Salutations to Shiva. A five-syllable chant for inner strength and calm.",
+           hi:"शिव को नमन। आंतरिक शक्ति और शांति का पंचाक्षरी मंत्र।",
+           te:"శివుడికి నమస్కారం. అంతర్గత శక్తి, ప్రశాంతత ఇచ్చే పంచాక్షరీ మంత్రం."}},
+ {sa:"ॐ नमो नारायणाय", tr:"Om namo naaraayanaaya",
+  meaning:{en:"Salutations to Narayana. Traditionally chanted for peace and protection.",
+           hi:"नारायण को नमन। शांति और सुरक्षा के लिए पारंपरिक जाप।",
+           te:"నారాయణుడికి నమస్కారం. శాంతి, రక్షణ కోసం సంప్రదాయ జపం."}},
+ {sa:"वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥", tr:"Vakratunda mahaakaaya sooryakoti samaprabha, nirvighnam kuru me deva sarva-kaaryeshu sarvadaa",
+  meaning:{en:"O Lord Ganesha, radiant like a million suns, remove every obstacle from my path, always.",
+           hi:"हे गणेश, करोड़ों सूर्यों जैसे तेजस्वी, मेरे हर काम से विघ्न हटाओ, सदा।",
+           te:"కోటి సూర్యుల ప్రకాశమైన గణేశా, నా ప్రతి పని నిర్విఘ్నంగా నడిపించుము."}}
+);
+LB_SANSKAR.mantras.push(
+ {sa:"ॐ ऐं सरस्वत्यै नमः", tr:"Om aim saraswatyai namah",
+  meaning:{en:"Salutations to Saraswati, goddess of learning, music and wisdom.",
+           hi:"सरस्वती को नमन — विद्या, संगीत और बुद्धि की देवी।",
+           te:"సరస్వతికి నమస్కారం — విద్య, సంగీతం, జ్ఞానం అమ్మవారు."}},
+ {sa:"ॐ पूर्णमदः पूर्णमिदं पूर्णात् पूर्णमुदच्यते॥", tr:"Om poornamadah poornamidam poornaat poornam udachyate",
+  meaning:{en:"That is whole, this is whole; from wholeness comes wholeness. (Isha Upanishad)",
+           hi:"वह पूर्ण है, यह पूर्ण है; पूर्ण से ही पूर्ण आता है। (ईश उपनिषद्)",
+           te:"అది పూర్ణం, ఇది పూర్ణం; పూర్ణం నుండే పూర్ణం వస్తుంది. (ఈశా ఉపనిషత్)"}},
+ {sa:"या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता। नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥", tr:"Yaa devee sarva-bhooteshu shakti-roopena samsthitaa, namastasyai namastasyai namastasyai namo namah",
+  meaning:{en:"To the Divine Mother who lives in all beings as strength, we bow again and again.",
+           hi:"जो देवी सभी प्राणियों में शक्ति रूप में हैं, उन्हें बार-बार नमन।",
+           te:"అన్ని జీవుల్లో శక్తిరూపంగా ఉండే ఆదిశక్తికి పదేపదే నమస్కారం."}},
+ {sa:"त्वमेव माता च पिता त्वमेव। त्वमेव बन्धुश्च सखा त्वमेव॥", tr:"Tvameva maataa cha pitaa tvameva, tvameva bandhushcha sakhaa tvameva",
+  meaning:{en:"You alone are mother and father, friend and companion. A prayer of complete trust.",
+           hi:"तुम ही माता-पिता हो, तुम ही बंधु और सखा। पूर्ण भरोसे की प्रार्थना।",
+           te:"నీవే తల్లి, నీవే తండ్రి, నీవే బంధువు, నీవే స్నేహితుడు. పూర్తి నమ్మకం ప్రార్థన."}}
+);
+LB_GITA.push(
+ {ref:"2.14", sa:"मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः। आगमापायिनोऽनित्याः॥", tr:"maatra-sparshaas tu kaunteya... aagamaapaayino'nityaah",
+  meaning:{en:"Comfort and discomfort come and go like seasons. Bear them gently; they pass.",
+           hi:"सुख-दुख मौसम की तरह आते-जाते हैं। धीरे से सहन करो; वे बीत जाते हैं।",
+           te:"సుఖదుఃఖాలు ఋతువుల్లా వస్తాయి పోతాయి. ప్రశాంతంగా భరించు; అవి గడిచిపోతాయి."}},
+ {ref:"5.10", sa:"ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः। लिप्यते न स पापेन पद्मपत्रमिवाम्भसा॥", tr:"padma-patram iva ambhasaa",
+  meaning:{en:"One who works without attachment stays untouched, like a lotus leaf in water.",
+           hi:"जो आसक्ति छोड़कर कर्म करता है, वह जल में कमल-पत्ते की तरह अछूता रहता है।",
+           te:"మమకారం లేకుండా పని చేసేవాడు నీటిలో తామరాకులా మురికి తగలదు."}},
+ {ref:"6.17", sa:"युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु। युक्तस्वप्नावबोधस्य योगो भवति दुःखहा॥", tr:"yuktaahaara-vihaarasya yukta-cheshtasya karmasu",
+  meaning:{en:"Balanced food, rest, work and sleep — balance itself washes sorrow away.",
+           hi:"संतुलित भोजन, विश्राम, कर्म और नींद — संतुलन ही दुख हरता है।",
+           te:"సరియైన ఆహారం, విశ్రాంతి, పని, నిద్ర — సమతుల్యతే బాధను తొలగిస్తుంది."}},
+ {ref:"2.56", sa:"दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः।", tr:"duhkheshv anudvigna-manaah sukheshu vigata-sprhah",
+  meaning:{en:"Steady in sorrow, free of craving in joy — such a calm mind is called wise.",
+           hi:"दुख में अविचल, सुख में लालसा रहित — ऐसा स्थिर मन ज्ञानी कहलाता है।",
+           te:"బాధలో స్థిరంగా, సుఖంలో ఆశ లేకుండా — అలాంటి ప్రశాంత మనసే జ్ఞానం."}}
+);

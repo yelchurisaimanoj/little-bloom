@@ -137,6 +137,12 @@ const I18N = {
     gita_meaning: "Simple meaning",
     gita_prev: "Back", gita_next: "Next",
     gita_note: "Shared as cultural wisdom and inspiration.",
+    today_title: "Today's blessings",
+    today_sub: "Something new blossoms every day.",
+    today_mantra: "Today's mantra",
+    today_gita: "Today's Gita card",
+    today_affirm: "Today's words for mama",
+    gita_today: "Today",
   },
   hi: {
     appName: "लिटिल ब्लूम",
@@ -275,6 +281,12 @@ const I18N = {
     gita_meaning: "सरल अर्थ",
     gita_prev: "पीछे", gita_next: "आगे",
     gita_note: "सांस्कृतिक ज्ञान और प्रेरणा के रूप में साझा किया गया।",
+    today_title: "आज के आशीर्वाद",
+    today_sub: "हर दिन कुछ नया खिलता है।",
+    today_mantra: "आज का मंत्र",
+    today_gita: "आज का गीता कार्ड",
+    today_affirm: "आज के शब्द माँ के लिए",
+    gita_today: "आज",
   },
   te: {
     appName: "లిటిల్ బ్లూమ్",
@@ -413,6 +425,12 @@ const I18N = {
     gita_meaning: "సరళమైన అర్థం",
     gita_prev: "వెనుకకు", gita_next: "ముందుకు",
     gita_note: "సాంస్కృతిక జ్ఞానం, స్ఫూర్తిగా పంచుకున్నాము.",
+    today_title: "ఈరోజు ఆశీర్వాదాలు",
+    today_sub: "ప్రతిరోజూ కొత్తది వికసిస్తుంది.",
+    today_mantra: "ఈరోజు మంత్రం",
+    today_gita: "ఈరోజు గీత కార్డు",
+    today_affirm: "అమ్మ కోసం ఈరోజు మాట",
+    gita_today: "ఈరోజు",
   }
 };
 

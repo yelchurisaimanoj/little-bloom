@@ -15,6 +15,10 @@
     const week = Math.max(0, Math.ceil((280 - daysLeft) / 7));
     return { week, daysLeft };
   }
+  function dayOfYear() {
+    const n = new Date();
+    return Math.floor((Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()) - Date.UTC(n.getFullYear(), 0, 1)) / 86400000);
+  }
   const trimOf = w => (w <= 13 ? 1 : w <= 27 ? 2 : 3);
 
   /* ---------- shell: topbar, bottom nav, disclaimer, footer ---------- */
@@ -96,6 +100,15 @@
         '<a class="month-tile" href="./month.html?m=' + m.n + '"><span class="mnum">' + m.n + '</span><span class="mname">' + t("month_word_" + m.n) + '</span><div class="mwk">' + t("week") + " " + m.wk + "</div></a>").join("");
       const day = Math.floor(Date.now() / 86400000);
       $("#bonding").textContent = pick(LB_BONDING[day % LB_BONDING.length]);
+      const doy = dayOfYear();
+      const tm = LB_SANSKAR.mantras[doy % LB_SANSKAR.mantras.length];
+      const tg = LB_GITA[doy % LB_GITA.length];
+      const ta = LB_SANSKAR.affirmations[doy % LB_SANSKAR.affirmations.length];
+      $("#todayList").innerHTML = [
+        ["sanskar.html", "🧔", t("today_mantra"), tm.sa + " \u2014 " + tm.tr],
+        ["gita.html", "🕉️", t("today_gita"), tg.ref + " \u2014 " + pick(tg.meaning)],
+        ["sanskar.html", "🌸", t("today_affirm"), pick(ta)]
+      ].map(x => '<a class="tool-tile today-tile" href="./' + x[0] + '"><span class="ic">' + x[1] + '</span><span><span class="tt">' + esc(x[2]) + '</span><br><span class="ts">' + esc(x[3]) + '</span></span></a>').join("");
       $("#toolList").innerHTML = [
         ["week.html", "🌱", "tool_weeks", "tool_weeks_sub"],
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
@@ -358,6 +371,11 @@
     },
     sanskar() {
       if ("speechSynthesis" in window) speechSynthesis.cancel();
+      const doy = dayOfYear(), todayM = LB_SANSKAR.mantras[doy % LB_SANSKAR.mantras.length];
+      $("#todayMantra").innerHTML = '<div class="card today-hero"><span class="pill">🌼 ' + t("today_mantra") + '</span>' +
+        '<div class="sa-verse" style="margin-top:10px">' + esc(todayM.sa) + '</div>' +
+        '<div class="sa-tr">' + esc(todayM.tr) + '</div>' +
+        '<p style="margin-top:8px">' + esc(pick(todayM.meaning)) + '</p></div>';
       $("#mantraList").innerHTML = LB_SANSKAR.mantras.map((m, i) =>
         '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')">' +
         '<div class="sa-verse">' + esc(m.sa) + '</div>' +
@@ -366,7 +384,7 @@
         '<div class="hidden-part"><p>' + esc(pick(m.meaning)) + "</p>" +
         '<button class="btn soft chant-btn" data-c="' + i + '">\u{1F50A} ' + t("mantra_hear") + "</button></div></div>").join("");
       $$(".chant-btn").forEach(b => b.onclick = e => { e.stopPropagation(); chant(LB_SANSKAR.mantras[+b.dataset.c].tr); });
-      let ai = Math.floor(Math.random() * LB_SANSKAR.affirmations.length);
+      let ai = dayOfYear() % LB_SANSKAR.affirmations.length;
       const showAff = () => {
         $("#affText").textContent = pick(LB_SANSKAR.affirmations[ai]);
         const f = $("#affFlower");
@@ -386,7 +404,8 @@
     },
 
     gita() {
-      let gi = 0, sx = null;
+      const todayGi = dayOfYear() % LB_GITA.length;
+      let gi = todayGi, sx = null;
       function show(dir) {
         const c = LB_GITA[gi];
         $("#gRef").textContent = c.ref;
@@ -394,6 +413,7 @@
         $("#gTr").textContent = c.tr;
         $("#gMean").textContent = pick(c.meaning);
         $("#gCount").textContent = (gi + 1) + " / " + LB_GITA.length;
+        $("#gToday").style.display = gi === todayGi ? "" : "none";
         const card = $("#gCard");
         card.classList.remove("flip-l", "flip-r"); void card.offsetWidth;
         if (dir) card.classList.add(dir > 0 ? "flip-l" : "flip-r");

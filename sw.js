@@ -1,14 +1,14 @@
 /* Little Bloom service worker — offline after first load */
-const CACHE = "little-bloom-v7";
+const CACHE = "little-bloom-v8";
 const ASSETS = [
   "./", "./index.html", "./week.html", "./month.html", "./breathe.html", "./kicks.html",
   "./diet.html", "./checklist.html", "./bag.html", "./signs.html", "./partner.html",
   "./about.html", "./menu.html", "./play.html",
   "./sanskar.html", "./gita.html",
-  "./css/styles-v5.css",
-  "./js/i18n-v5.js", "./js/content-weeks-1.js", "./js/content-weeks-2.js",
+  "./css/styles-v6.css",
+  "./js/i18n-v6.js", "./js/content-weeks-1.js", "./js/content-weeks-2.js",
   "./js/content-weeks-3.js", "./js/content-weeks-4.js", "./js/content-months.js",
-  "./js/content-extra-v4.js", "./js/content-sanskar.js", "./js/app-v6.js",
+  "./js/content-extra-v4.js", "./js/content-sanskar.js", "./js/app-v7.js",
   "./icons/icon-192.png", "./icons/icon-512.png", "./manifest.webmanifest"
 ];
 self.addEventListener("install", e => {
