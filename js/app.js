@@ -59,6 +59,16 @@
     if (fn) fn();
   }
 
+  /* ---------- speech helper for mantras ---------- */
+  function chant(txt) {
+    if (!("speechSynthesis" in window)) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(txt);
+    u.rate = 0.72;
+    u.lang = getLang() === "te" ? "te-IN" : "hi-IN";
+    speechSynthesis.speak(u);
+  }
+
   /* ---------- pages ---------- */
   const PAGES = {
     home() {
@@ -91,6 +101,8 @@
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
         ["play.html", "🎨", "tool_play", "tool_play_sub"],
+        ["sanskar.html", "🧔", "tool_sanskar", "tool_sanskar_sub"],
+        ["gita.html", "🕉️", "tool_gita", "tool_gita_sub"],
         ["checklist.html", "✅", "tool_checklist", "tool_checklist_sub"],
         ["bag.html", "🧳", "tool_bag", "tool_bag_sub"],
         ["signs.html", "🚨", "tool_signs", "tool_signs_sub"],
@@ -344,6 +356,62 @@
       $("#paperNext").onclick = () => { paperIdx = (paperIdx + 1) % LB_PAPER.length; showPaper(); };
       showPaper();
     },
+    sanskar() {
+      if ("speechSynthesis" in window) speechSynthesis.cancel();
+      $("#mantraList").innerHTML = LB_SANSKAR.mantras.map((m, i) =>
+        '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')">' +
+        '<div class="sa-verse">' + esc(m.sa) + '</div>' +
+        '<div class="sa-tr">' + esc(m.tr) + '</div>' +
+        '<div class="more-hint">' + t("tap_to_open") + " \u25be</div>" +
+        '<div class="hidden-part"><p>' + esc(pick(m.meaning)) + "</p>" +
+        '<button class="btn soft chant-btn" data-c="' + i + '">\U0001F50A ' + t("mantra_hear") + "</button></div></div>").join("");
+      $$(".chant-btn").forEach(b => b.onclick = e => { e.stopPropagation(); chant(LB_SANSKAR.mantras[+b.dataset.c].tr); });
+      let ai = Math.floor(Math.random() * LB_SANSKAR.affirmations.length);
+      const showAff = () => {
+        $("#affText").textContent = pick(LB_SANSKAR.affirmations[ai]);
+        const f = $("#affFlower");
+        f.classList.remove("bloom"); void f.offsetWidth; f.classList.add("bloom");
+      };
+      const nextAff = () => { ai = (ai + 1) % LB_SANSKAR.affirmations.length; showAff(); };
+      $("#affNext").onclick = nextAff;
+      $("#affCard").onclick = e => { if (!e.target.closest("button")) nextAff(); };
+      showAff();
+      $("#storyList").innerHTML = LB_SANSKAR.stories.map(x =>
+        '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')"><h3>\U0001F4D6 ' + esc(pick(x.title)) + '</h3>' +
+        '<div class="more-hint">' + t("tap_to_open") + " \u25be</div>" +
+        '<div class="hidden-part"><p>' + esc(pick(x.text)) + "</p></div></div>").join("");
+      $("#monthPrac").innerHTML = LB_SANSKAR.monthly.map((m, i) =>
+        '<div class="month-tile"><span class="mnum">' + (i + 1) + '</span><div class="mprac">' + esc(pick(m)) + "</div></div>").join("");
+      document.title = t("sanskar_title") + " \u00b7 " + t("appName");
+    },
+
+    gita() {
+      let gi = 0, sx = null;
+      function show(dir) {
+        const c = LB_GITA[gi];
+        $("#gRef").textContent = c.ref;
+        $("#gSa").textContent = c.sa;
+        $("#gTr").textContent = c.tr;
+        $("#gMean").textContent = pick(c.meaning);
+        $("#gCount").textContent = (gi + 1) + " / " + LB_GITA.length;
+        const card = $("#gCard");
+        card.classList.remove("flip-l", "flip-r"); void card.offsetWidth;
+        if (dir) card.classList.add(dir > 0 ? "flip-l" : "flip-r");
+      }
+      const next = () => { gi = (gi + 1) % LB_GITA.length; show(1); };
+      const prev = () => { gi = (gi - 1 + LB_GITA.length) % LB_GITA.length; show(-1); };
+      $("#gNext").onclick = next;
+      $("#gPrev").onclick = prev;
+      const card = $("#gCard");
+      card.addEventListener("pointerdown", e => { sx = e.clientX; });
+      card.addEventListener("pointerup", e => {
+        if (sx === null) return;
+        const dx = e.clientX - sx; sx = null;
+        if (dx < -40) next(); else if (dx > 40) prev();
+      });
+      show(0);
+      document.title = t("gita_title") + " \u00b7 " + t("appName");
+    },
     about() {},
     menu() {
       $("#menuList").innerHTML = [
@@ -351,6 +419,8 @@
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
         ["play.html", "🎨", "tool_play", "tool_play_sub"],
+        ["sanskar.html", "🧔", "tool_sanskar", "tool_sanskar_sub"],
+        ["gita.html", "🕉️", "tool_gita", "tool_gita_sub"],
         ["checklist.html", "✅", "tool_checklist", "tool_checklist_sub"],
         ["bag.html", "🧳", "tool_bag", "tool_bag_sub"],
         ["signs.html", "🚨", "tool_signs", "tool_signs_sub"],

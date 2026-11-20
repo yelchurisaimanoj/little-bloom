@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garbha Sanskar · Little Bloom</title>
+<meta name="description" content="Garbha Sanskar: traditional mantras, stories and affirmations for pregnancy, as cultural tradition. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles-v5.css">
+</head>
+<body data-page="sanskar" data-nav="menu">
+
+<div class="page">
+  <div class="hero">
+    <h1 data-i18n="sanskar_title"></h1>
+    <p data-i18n="sanskar_sub"></p>
+  </div>
+
+  <div class="card" style="background:var(--blue-soft)"><p>&#x1F9D4; <span data-i18n="sanskar_frame"></span></p></div>
+
+  <h2 class="section-title" data-i18n="mantra_title"></h2>
+  <p style="color:var(--muted);margin:0 2px 10px" data-i18n="mantra_sub"></p>
+  <div id="mantraList"></div>
+
+  <h2 class="section-title" data-i18n="affirm_title"></h2>
+  <div class="card aff-card" id="affCard">
+    <span class="aff-flower" id="affFlower">&#x1F338;</span>
+    <p class="aff-text" id="affText"></p>
+    <p style="color:var(--muted)" data-i18n="affirm_sub"></p>
+    <button class="btn soft" id="affNext" data-i18n="affirm_next"></button>
+  </div>
+
+  <h2 class="section-title" data-i18n="story_title"></h2>
+  <p style="color:var(--muted);margin:0 2px 10px" data-i18n="story_sub"></p>
+  <div id="storyList"></div>
+
+  <h2 class="section-title" data-i18n="monthly_title"></h2>
+  <p style="color:var(--muted);margin:0 2px 10px" data-i18n="monthly_sub"></p>
+  <div class="grid3" id="monthPrac"></div>
+</div>
+
+<script src="./js/i18n-v5.js"></script>
+<script src="./js/content-sanskar.js"></script>
+<script src="./js/app-v5.js"></script>
+</body>
+</html>

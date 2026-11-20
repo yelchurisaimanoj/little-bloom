@@ -262,3 +262,26 @@ button { font-family: inherit; }
 .pop-heart { position: absolute; font-size: 2.1rem; background: none; border: 0; cursor: pointer; animation: floaty 2.5s ease-in forwards; padding: 6px; }
 .pop-heart.gone { transform: scale(1.9); opacity: 0; transition: transform .2s ease, opacity .2s ease; }
 @keyframes floaty { from { transform: translateY(14px); opacity: 0; } 20% { opacity: 1; } to { transform: translateY(-50px); opacity: 0; } }
+
+/* ---------- sanskar & gita ---------- */
+.sa-verse { font-size: 1.22rem; font-weight: 700; color: var(--plum); line-height: 1.5; }
+.sa-tr { color: var(--muted); font-size: .87rem; font-style: italic; margin-top: 4px; }
+.mprac { font-size: .78rem; color: var(--ink); margin-top: 6px; line-height: 1.35; }
+.aff-card { text-align: center; cursor: pointer; }
+.aff-flower { font-size: 2.6rem; display: block; }
+.aff-flower.bloom { animation: pop .4s ease; }
+.aff-text { font-size: 1.15rem; font-weight: 700; color: var(--plum); margin: 10px 0 14px; }
+.chant-btn { min-height: 44px; padding: 8px 16px; font-size: .9rem; margin-top: 6px; }
+.gita-card { background: linear-gradient(160deg, #fff, #fdf3ec); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 18px; text-align: center; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.gita-ref { display: inline-block; background: var(--bg2); color: var(--rose-deep); border-radius: 999px; padding: 4px 14px; font-size: .78rem; font-weight: 800; }
+.gita-sa { font-size: 1.32rem; font-weight: 700; color: var(--plum); margin: 14px 0 4px; line-height: 1.6; }
+.gita-tr { color: var(--muted); font-size: .85rem; font-style: italic; margin: 0; }
+.gita-mean { font-size: .98rem; margin: 14px 0 0; }
+.gita-mean .ft { font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; color: var(--rose); font-weight: 800; display: block; margin-bottom: 2px; }
+.gita-nav { display: flex; align-items: center; gap: 10px; margin: 14px 0; }
+.gita-nav .btn { flex: 1; }
+.gita-count { font-weight: 800; color: var(--muted); font-size: .85rem; min-width: 46px; text-align: center; }
+@keyframes flipL { 0% { transform: translateX(26px) rotate(2deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
+@keyframes flipR { 0% { transform: translateX(-26px) rotate(-2deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.gita-card.flip-l { animation: flipL .28s ease; }
+.gita-card.flip-r { animation: flipR .28s ease; }

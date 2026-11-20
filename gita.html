@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gita cards · Little Bloom</title>
+<meta name="description" content="Small Bhagavad Gita verse cards with simple meanings for calm and strength. English, Hindi, Telugu.">
+<meta name="theme-color" content="#e8637c">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./css/styles-v5.css">
+</head>
+<body data-page="gita" data-nav="menu">
+
+<div class="page">
+  <div class="hero">
+    <h1 data-i18n="gita_title"></h1>
+    <p data-i18n="gita_sub"></p>
+  </div>
+
+  <div class="gita-card" id="gCard">
+    <span class="gita-ref" id="gRef"></span>
+    <p class="gita-sa" id="gSa"></p>
+    <p class="gita-tr" id="gTr"></p>
+    <p class="gita-mean"><span class="ft" data-i18n="gita_meaning"></span><span id="gMean"></span></p>
+  </div>
+
+  <div class="gita-nav">
+    <button class="btn ghost" id="gPrev" data-i18n="gita_prev"></button>
+    <span class="gita-count" id="gCount"></span>
+    <button class="btn" id="gNext" data-i18n="gita_next"></button>
+  </div>
+
+  <div class="card" style="background:var(--green-soft)"><p>&#x1F549;&#xFE0F; <span data-i18n="gita_note"></span></p></div>
+</div>
+
+<script src="./js/i18n-v5.js"></script>
+<script src="./js/content-sanskar.js"></script>
+<script src="./js/app-v5.js"></script>
+</body>
+</html>
