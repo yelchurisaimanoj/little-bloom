@@ -364,7 +364,7 @@
         '<div class="sa-tr">' + esc(m.tr) + '</div>' +
         '<div class="more-hint">' + t("tap_to_open") + " \u25be</div>" +
         '<div class="hidden-part"><p>' + esc(pick(m.meaning)) + "</p>" +
-        '<button class="btn soft chant-btn" data-c="' + i + '">\U0001F50A ' + t("mantra_hear") + "</button></div></div>").join("");
+        '<button class="btn soft chant-btn" data-c="' + i + '">\u{1F50A} ' + t("mantra_hear") + "</button></div></div>").join("");
       $$(".chant-btn").forEach(b => b.onclick = e => { e.stopPropagation(); chant(LB_SANSKAR.mantras[+b.dataset.c].tr); });
       let ai = Math.floor(Math.random() * LB_SANSKAR.affirmations.length);
       const showAff = () => {
@@ -377,7 +377,7 @@
       $("#affCard").onclick = e => { if (!e.target.closest("button")) nextAff(); };
       showAff();
       $("#storyList").innerHTML = LB_SANSKAR.stories.map(x =>
-        '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')"><h3>\U0001F4D6 ' + esc(pick(x.title)) + '</h3>' +
+        '<div class="card tap-reveal" onclick="this.classList.toggle(\'open\')"><h3>\u{1F4D6} ' + esc(pick(x.title)) + '</h3>' +
         '<div class="more-hint">' + t("tap_to_open") + " \u25be</div>" +
         '<div class="hidden-part"><p>' + esc(pick(x.text)) + "</p></div></div>").join("");
       $("#monthPrac").innerHTML = LB_SANSKAR.monthly.map((m, i) =>
