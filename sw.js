@@ -1,5 +1,5 @@
 /* Little Bloom service worker — offline after first load */
-const CACHE = "little-bloom-v13";
+const CACHE = "little-bloom-v14";
 const ASSETS = [
   "./", "./index.html", "./week.html", "./month.html", "./breathe.html", "./kicks.html",
   "./diet.html", "./checklist.html", "./bag.html", "./signs.html", "./partner.html",
@@ -9,7 +9,7 @@ const ASSETS = [
   "./js/i18n-v8.js", "./js/content-weeks-1.js", "./js/content-weeks-2.js",
   "./js/content-weeks-3.js", "./js/content-weeks-4.js", "./js/content-months.js",
   "./js/content-extra-v4.js",
-  "./js/content-food.js", "./js/content-sanskar.js", "./js/app-v10.js",
+  "./js/content-food.js", "./js/content-sanskar.js", "./js/app-v11.js",
   "./icons/icon-192.png", "./icons/icon-512.png", "./manifest.webmanifest",
   "./audio/mantra-1.m4a", "./audio/mantra-2.m4a", "./audio/mantra-3.m4a", "./audio/mantra-4.m4a", "./audio/mantra-5.m4a", "./audio/mantra-6.m4a", "./audio/mantra-7.m4a", "./audio/mantra-8.m4a", "./audio/mantra-9.m4a", "./audio/mantra-10.m4a", "./audio/mantra-11.m4a", "./audio/mantra-12.m4a"
 ];

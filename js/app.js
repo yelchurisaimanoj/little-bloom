@@ -277,7 +277,7 @@
         $$("#foodChips button").forEach(x => x.classList.toggle("on", x === b));
         renderFood();
       });
-      $('#foodChips button[data-f="all"]').classList.add("on");
+      $$("#foodChips button").forEach(x => x.classList.toggle("on", x.dataset.f === "all"));
       $("#foodSearch").oninput = e => { foodQuery = e.target.value; renderFood(); };
       renderFood();
 
