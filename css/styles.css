@@ -305,3 +305,7 @@ button { font-family: inherit; }
 .fk-avoid .food-pill { background:#fbe3e3; color:#c0392b; }
 .food-note { display:none; font-size:12px; color:var(--muted); margin-top:6px; line-height:1.45; }
 .food-card.open .food-note { display:block; }
+
+/* food chart chips: wrap onto two lines, smaller than trimester tabs */
+.chip-row { flex-wrap: wrap; }
+.chip-row button { flex: 1 1 28%; padding: 10px 4px; font-size: .8rem; min-height: 44px; }
