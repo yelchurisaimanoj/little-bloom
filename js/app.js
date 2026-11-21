@@ -306,8 +306,16 @@
           for (let j = 0; j < per; j++) a.push([p1[0] + (q[0] - p1[0]) * j / per, p1[1] + (q[1] - p1[1]) * j / per]); } return a; };
       const spiralPts = () => { const a = []; for (let i = 0; i < 140; i++) { const t = i / 140 * 3.2 * 2 * Math.PI, r = 0.05 + 0.35 * i / 140;
         a.push([0.5 + r * Math.cos(t), 0.5 + r * Math.sin(t)]); } return a; };
-      const PATTERNS = [heartPts, starPts, spiralPts];
-      let pi = 0, guide = [], covered = [], last = null, finished = false;
+      const flowerPts = () => { const a = []; for (let i = 0; i < 140; i++) { const t = i / 140 * 2 * Math.PI, r = 0.22 + 0.14 * Math.cos(5 * t);
+        a.push([0.5 + r * Math.cos(t), 0.5 + r * Math.sin(t)]); } return a; };
+      const moonPts = () => { const a = []; for (let i = 0; i < 70; i++) { const t = -0.62 * Math.PI + i / 70 * 1.24 * Math.PI;
+        a.push([0.47 + 0.36 * Math.cos(t), 0.5 + 0.36 * Math.sin(t)]); }
+        for (let i = 0; i < 70; i++) { const t = 0.62 * Math.PI - i / 70 * 1.24 * Math.PI;
+        a.push([0.63 + 0.28 * Math.cos(t), 0.5 + 0.28 * Math.sin(t)]); } return a; };
+      const butterflyPts = () => { const a = []; for (let i = 0; i < 140; i++) { const t = i / 140 * 2 * Math.PI;
+        a.push([0.5 + 0.33 * Math.sin(t), 0.5 + 0.4 * Math.sin(t) * Math.cos(t)]); } return a; };
+      const PATTERNS = [heartPts, starPts, spiralPts, flowerPts, moonPts, butterflyPts];
+      let pi = dayOfYear() % PATTERNS.length, guide = [], covered = [], last = null, finished = false;
       function drawGuide() {
         ctx.clearRect(0, 0, cv.width, cv.height);
         guide = PATTERNS[pi](); covered = guide.map(() => false); finished = false;
@@ -338,7 +346,13 @@
       drawGuide();
 
       /* --- lullaby pad --- */
-      const notes = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25];
+      const SCALES = [
+        [261.63, 293.66, 329.63, 392.0, 440.0, 523.25],
+        [220.0, 261.63, 293.66, 329.63, 392.0, 440.0],
+        [246.94, 261.63, 329.63, 349.23, 415.3, 493.88],
+        [329.63, 392.0, 440.0, 523.25, 587.33, 659.25]
+      ];
+      const notes = SCALES[dayOfYear() % SCALES.length];
       const colors = ["#f7b1c1", "#f9c8a0", "#fbe3a1", "#b7e3c0", "#a9d4f5", "#d7bdf2"];
       let audio = null;
       $("#toneGrid").innerHTML = notes.map((n, i) =>
@@ -356,7 +370,13 @@
 
       /* --- catch the hearts --- */
       let spawned = 0, popped = 0, timer = null;
-      const POP_EMOJI = ["💗","🌸","⭐"];
+      const POP_THEMES = [
+        ["\u{1F497}","\u{1F338}","\u2B50"], ["\u{1F98B}","\u{1F33C}","\u{1F41E}"],
+        ["\u{1F353}","\u{1F352}","\u{1F347}"], ["\u{1F319}","\u2B50","\u2601\uFE0F"],
+        ["\u{1F425}","\u{1F423}","\u{1F337}"], ["\u{1F388}","\u{1F380}","\u{1F9F8}"],
+        ["\u{1F340}","\u{1F33B}","\u{1F308}"]
+      ];
+      const POP_EMOJI = POP_THEMES[dayOfYear() % POP_THEMES.length];
       function popReset() { clearInterval(timer); spawned = 0; popped = 0;
         $("#popCount").textContent = "0"; $("#popDone").style.display = "none"; $("#popBox").innerHTML = ""; }
       function spawnHeart() {
@@ -380,7 +400,7 @@
         mandala: '<svg width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="12" fill="none" stroke="#e8637c" stroke-width="4"/><circle cx="75" cy="75" r="28" fill="none" stroke="#e8637c" stroke-width="4"/>' + Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return '<ellipse cx="'+(75+44*Math.cos(a))+'" cy="'+(75+44*Math.sin(a))+'" rx="10" ry="16" fill="#f7b1c1" transform="rotate('+(i*45)+' '+(75+44*Math.cos(a))+' '+(75+44*Math.sin(a))+')"/>';}).join("") + "</svg>",
         name: '<svg width="150" height="150" viewBox="0 0 150 150"><text x="75" y="88" text-anchor="middle" font-size="44" fill="#e8637c" font-weight="800">A</text><circle cx="40" cy="40" r="6" fill="#f7b1c1"/><circle cx="112" cy="42" r="6" fill="#f7b1c1"/><circle cx="75" cy="118" r="6" fill="#f7b1c1"/></svg>'
       };
-      let paperIdx = 0;
+      let paperIdx = dayOfYear() % LB_PAPER.length;
       function showPaper() { const d = LB_PAPER[paperIdx]; $("#paperSvg").innerHTML = SVGS[d.svg]; $("#paperText").textContent = pick(d); }
       $("#paperNext").onclick = () => { paperIdx = (paperIdx + 1) % LB_PAPER.length; showPaper(); };
       showPaper();
