@@ -291,3 +291,17 @@ button { font-family: inherit; }
 .today-hero .pill { display: inline-block; }
 .gita-today { display: inline-block; background: var(--green-soft); color: #3f6b2e; border-radius: 999px; padding: 4px 14px; font-size: .78rem; font-weight: 800; margin-left: 6px; }
 .today-tile .ts { white-space: normal; }
+
+/* --- fruits & veggies chart --- */
+.food-search { width:100%; box-sizing:border-box; margin:10px 0 12px; padding:12px 16px; border-radius:999px; border:1.5px solid #ecc9d2; background:#fff; font:inherit; font-size:15px; outline:none; }
+.food-search:focus { border-color:var(--rose); }
+.food-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+.food-card { background:#fff; border-radius:18px; padding:12px; text-align:center; box-shadow:0 2px 10px rgba(90,30,50,.06); cursor:pointer; }
+.food-emoji { font-size:30px; display:block; }
+.food-name { font-weight:700; font-size:14px; margin-top:6px; color:var(--plum); }
+.food-pill { display:inline-block; margin-top:6px; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; }
+.fk-good .food-pill { background:#e2f4e5; color:#2c7a3f; }
+.fk-limit .food-pill { background:#fdf0d7; color:#9a6a12; }
+.fk-avoid .food-pill { background:#fbe3e3; color:#c0392b; }
+.food-note { display:none; font-size:12px; color:var(--muted); margin-top:6px; line-height:1.45; }
+.food-card.open .food-note { display:block; }

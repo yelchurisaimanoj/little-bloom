@@ -9,7 +9,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
-<link rel="stylesheet" href="./css/styles-v6.css">
+<link rel="stylesheet" href="./css/styles-v7.css">
 </head>
 <body data-page="diet" data-nav="menu">
 
@@ -18,6 +18,20 @@
     <h1 data-i18n="diet_title"></h1>
     <p data-i18n="diet_sub"></p>
   </div>
+  <h2 class="section-title" data-i18n="chart_title"></h2>
+  <p style="color:var(--muted);margin-top:-6px" data-i18n="chart_sub"></p>
+  <div class="tri-tabs" id="foodChips" style="margin-top:4px">
+    <button data-f="all" data-i18n="f_all"></button>
+    <button data-f="f" data-i18n="f_fruits"></button>
+    <button data-f="v" data-i18n="f_veg"></button>
+    <button data-f="good" data-i18n="f_good"></button>
+    <button data-f="limit" data-i18n="f_limit"></button>
+    <button data-f="avoid" data-i18n="f_avoid"></button>
+  </div>
+  <input type="search" id="foodSearch" class="food-search" data-i18n-ph="chart_search">
+  <div class="food-grid" id="foodGrid"></div>
+  <div class="card" style="background:var(--green-soft)"><p>🌱 <span data-i18n="chart_note"></span></p></div>
+
   <div class="tri-tabs" style="margin-top:16px">
     <button data-tri="1" data-i18n="trimester1"></button>
     <button data-tri="2" data-i18n="trimester2"></button>
@@ -34,13 +48,14 @@
   <div class="card"><p>💧 <span data-i18n="diet_note"></span></p></div>
 </div>
 
-<script src="./js/i18n-v7.js"></script>
+<script src="./js/i18n-v8.js"></script>
 <script src="./js/content-weeks-1.js"></script>
 <script src="./js/content-weeks-2.js"></script>
 <script src="./js/content-weeks-3.js"></script>
 <script src="./js/content-weeks-4.js"></script>
 <script src="./js/content-months.js"></script>
 <script src="./js/content-extra-v4.js"></script>
-<script src="./js/app-v9.js"></script>
+<script src="./js/content-food.js"></script>
+<script src="./js/app-v10.js"></script>
 </body>
 </html>

@@ -256,6 +256,31 @@
     },
 
     diet() {
+      /* --- fruits & veggies chart: chips + search + tap-to-expand --- */
+      let foodFilter = "all", foodQuery = "";
+      const pillTxt = k => k === "good" ? t("f_good") : k === "limit" ? t("f_limit") : t("f_avoid");
+      const renderFood = () => {
+        const q = foodQuery.trim().toLowerCase();
+        const items = LB_FOOD.filter(x =>
+          (foodFilter === "all" || x.t === foodFilter || x.k === foodFilter) &&
+          (!q || (x.en + " " + x.hi + " " + x.te).toLowerCase().includes(q)));
+        $("#foodGrid").innerHTML = items.map(x =>
+          '<div class="food-card fk-' + x.k + '">' +
+          '<span class="food-emoji">' + x.e + '</span>' +
+          '<div class="food-name">' + esc(pick(x)) + '</div>' +
+          '<span class="food-pill">' + pillTxt(x.k) + '</span>' +
+          '<div class="food-note">' + esc(pick(x.n)) + "</div></div>").join("");
+        $$("#foodGrid .food-card").forEach(c => c.onclick = () => c.classList.toggle("open"));
+      };
+      $$("#foodChips button").forEach(b => b.onclick = () => {
+        foodFilter = b.dataset.f;
+        $$("#foodChips button").forEach(x => x.classList.toggle("on", x === b));
+        renderFood();
+      });
+      $('#foodChips button[data-f="all"]').classList.add("on");
+      $("#foodSearch").oninput = e => { foodQuery = e.target.value; renderFood(); };
+      renderFood();
+
       const render = tri => {
         const d = LB_DIET["t" + tri];
         $("#dEat").innerHTML = d.eat.map(x => '<li><span class="dot">🥗</span><span>' + esc(pick(x)) + "</span></li>").join("");
