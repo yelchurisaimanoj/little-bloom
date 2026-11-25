@@ -310,3 +310,4 @@ button { font-family: inherit; }
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
 .chip-row button { flex: 1 1 28%; border: 0; border-radius: 14px; background: #fff; box-shadow: var(--shadow); padding: 10px 4px; font-weight: 800; color: var(--muted); min-height: 44px; font-size: .8rem; }
 .chip-row button.on { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); color: #fff; }
+.sign-card .ts { font-weight: 500; color: #6b4a4a; font-size: .88rem; }

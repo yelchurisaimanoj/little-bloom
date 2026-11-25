@@ -129,6 +129,7 @@
         ["week.html", "🌱", "tool_weeks", "tool_weeks_sub"],
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
+        ["avoid.html", "📵", "tool_avoid", "tool_avoid_sub"],
         ["play.html", "🎨", "tool_play", "tool_play_sub"],
         ["sanskar.html", "🧔", "tool_sanskar", "tool_sanskar_sub"],
         ["gita.html", "🕉️", "tool_gita", "tool_gita_sub"],
@@ -306,6 +307,20 @@
         $("#" + id).innerHTML = arr.map((x, j) => checkRow("bag_" + p + "_" + j, pick(x))).join("");
       });
       bindChecks();
+    },
+
+    avoid() {
+      let cat = "phone";
+      const render = () => {
+        $("#avList").innerHTML = LB_AVOID.filter(x => x.c === cat).map(x =>
+          '<div class="sign-card"><span class="sic">' + x.e + '</span><span class="st"><b>' + esc(pick(x)) + '</b><br><span class="ts">' + esc(pick(x.n)) + "</span></span></div>").join("");
+        $$("#avChips button").forEach(b => b.classList.toggle("on", b.dataset.c === cat));
+      };
+      $$("#avChips button").forEach(b => b.onclick = () => { cat = b.dataset.c; render(); });
+      const day = new Date().toISOString().slice(0, 10);
+      $("#avPledge").innerHTML = [1, 2, 3].map(i => checkRow("pledge_" + day + "_" + i, t("av_p" + i))).join("");
+      bindChecks();
+      render();
     },
 
     signs() {
@@ -500,6 +515,7 @@
         ["week.html", "🌱", "tool_weeks", "tool_weeks_sub"],
         ["month.html?m=1", "🗓️", "tool_months", "tool_months_sub"],
         ["diet.html", "🥗", "tool_diet", "tool_diet_sub"],
+        ["avoid.html", "📵", "tool_avoid", "tool_avoid_sub"],
         ["play.html", "🎨", "tool_play", "tool_play_sub"],
         ["sanskar.html", "🧔", "tool_sanskar", "tool_sanskar_sub"],
         ["gita.html", "🕉️", "tool_gita", "tool_gita_sub"],
